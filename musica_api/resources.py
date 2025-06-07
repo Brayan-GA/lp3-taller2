@@ -25,7 +25,6 @@ class Ping(Resource):
         """Endpoint para verificar que la API está funcionando"""
         # TODO: pendiente de implementar
         return {"mensaje": "API funcionando correctamente"}, 200
-        pass
 
 # Recursos para Usuarios
 @ns.route("/usuarios")
@@ -73,7 +72,8 @@ class UsuarioAPI(Resource):
     def get(self, id):
         """Obtiene un usuario por su ID"""
         # TODO: pendiente de implementar
-        pass
+        usuario = Usuario.query.get_or_404(id)
+        return usuario
     
     @ns.doc("Actualizar un usuario")
     @ns.expect(usuario_base)
