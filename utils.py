@@ -30,6 +30,9 @@ def formatear_duracion(segundos):
         str: Duración formateada como mm:ss
     """
     # TODO: pendiente de implementar
+    minutos = segundos // 60
+    segundos_restantes = segundos % 60
+    return f"{minutos:02}:{segundos_restantes:02}"
     pass 
 
 def generar_slug(texto):
