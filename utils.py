@@ -47,15 +47,19 @@ def generar_slug(texto):
         str: Slug generado
     """
     # TODO: Convertir a minúsculas
-    slug = texto
+    slug = texto.lower()
     
     # TODO: Reemplazar espacios con guiones
+    slug = re.sub(r"\s+", "-", slug)
     
     # TODO: Eliminar caracteres no alfanuméricos (excepto guiones)
+    slug = re.sub(r"[^\w\-]", "", slug)
     
     # TODO: Reemplazar múltiples guiones con uno solo
+    slug = re.sub(r"-{2,}", "-", slug)
     
     # TODO: Eliminar guiones al inicio y final
+    slug = slug.strip("-")
     
     return slug
 
