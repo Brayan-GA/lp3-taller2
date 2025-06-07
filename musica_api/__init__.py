@@ -28,7 +28,9 @@ def create_app(config_name=None):
     
     # Inicialización de extensiones
     # TODO: las variables 'api' y 'db'
-    
+    api.init_app(app)
+    db.init_app(app)
+
     # Registro de namespaces
     api.add_namespace(ns)
     
