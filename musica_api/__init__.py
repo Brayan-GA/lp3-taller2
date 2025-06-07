@@ -6,6 +6,7 @@ from flask import Flask
 from .extensions import api, db
 from .resources import ns
 from .config import get_config
+import os
 
 def create_app(config_name=None):
     """
