@@ -8,11 +8,16 @@ from dotenv import load_dotenv
 # Cargar variables de entorno desde archivo .env si existe
 load_dotenv()
 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
 class Config:
     """Configuración base para la aplicación."""
     # Configuración de la base de datos
     # FIXME: la ubicación de la base de datos no funciona
-    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI', 'sqlite://Users/Admin/Public/musica.db')
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        'SQLALCHEMY_DATABASE_URI',
+        f"sqlite:///{os.path.join(BASE_DIR, 'musica.db')}"
+    )
     SQLALCHEMY_TRACK_MODIFICATIONS = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS', 'False').lower() == 'true'
     
     # Configuración de la API
@@ -46,13 +51,14 @@ config_by_name = {
 }
 
 # Obtener configuración según el entorno
-def get_config():
+def get_config(env=None):
     """
     Obtiene la configuración según el entorno especificado en las variables de entorno.
     
     Returns:
         object: Clase de configuración según el entorno.
     """
-    env = os.getenv('FLASK_ENV', 'development')
+    if env is None:    
+        env = os.getenv('FLASK_ENV', 'development')
     return config_by_name.get(env, config_by_name['default'])
 
