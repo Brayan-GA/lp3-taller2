@@ -16,6 +16,7 @@ if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     
     # TODO: Determinar si se debe usar modo debug
+    debug = os.getenv("FLASK_DEBUG", "false").lower() == "true"
     
     # TODO: Ejecutar aplicación
 
