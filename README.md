@@ -1,3 +1,4 @@
+Brayan Esmith Gil Alvarez  CC: 1129424260
 # API de Música
 
 Una [API RESTful](https://aws.amazon.com/es/what-is/restful-api/) para gestionar usuarios, canciones y relaciones de favoritos. Desarrollada con [Flask](https://flask.palletsprojects.com/en/stable/), [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/), [Flask-SQLAlchemy](https://flask-sqlalchemy.readthedocs.io/en/stable/) y [SQLAlchemy](https://www.sqlalchemy.org/).
